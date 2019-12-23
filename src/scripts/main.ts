@@ -1,4 +1,5 @@
-  import * as Phaser from 'phaser';
+import * as Phaser from 'phaser';
+import { MainScene } from './scenes/mainScene';
 
 const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
     active: false,
@@ -45,13 +46,14 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     type: Phaser.AUTO,
 
     scale: {
-        width: 600,
-        height: 400,
+        width: window.innerWidth - 10,
+        height: window.innerHeight - 15,
     },
 
     physics: {
         default: 'arcade',
         arcade: {
+            gravity: { y: 400 },
             debug: true,
         },
     },
@@ -59,7 +61,7 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     parent: 'game',
     backgroundColor: '#000000',
 
-    scene: GameScene,
+    scene: MainScene,
 };
 
 export const game = new Phaser.Game(gameConfig);
